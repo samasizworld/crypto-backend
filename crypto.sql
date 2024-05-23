@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS crypto (
     price numeric,
     twentyfourhour numeric,
     marketcap numeric,
+    rank integer,
     datecreated timestamp without time zone default now()::timestamp without time zone,
     datemodified timestamp without time zone,
     datedeleted timestamp without time zone,

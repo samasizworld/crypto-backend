@@ -20,6 +20,7 @@ export class Crypto {
                 price: { type: DataTypes.STRING },
                 marketcap: { type: DataTypes.STRING },
                 twentyfourhour: { type: DataTypes.STRING },
+                rank: { type: DataTypes.INTEGER },
                 datecreated: { type: "TIMESTAMP" },
                 datemodified: { type: "TIMESTAMP" },
                 datedeleted: { type: "TIMESTAMP" },

@@ -23,7 +23,7 @@ export class CryptoService {
 
         }
     }
-    
+
     async getCryptoByCode(code: string) {
         return await this.dbContext.findOne({ where: { code: code, datedeleted: null } });
     }
@@ -44,9 +44,15 @@ export class CryptoService {
             result.data = await this.dbContext.findAll({ where: whereQuery })
 
         } else {
-            result.data = await this.dbContext.findAll({
-                where: whereQuery, order: [[Sequelize.fn('lower', Sequelize.col(orderBy)), orderDir]], limit: pageSize, offset: offset
-            })
+            if (this.dbContext.tableAttributes[orderBy] && this.dbContext.tableAttributes[orderBy].type.key == "STRING") {
+                result.data = await this.dbContext.findAll({
+                    where: whereQuery, order: [[Sequelize.fn('lower', Sequelize.col(orderBy)), orderDir]], limit: pageSize, offset: offset
+                })
+            } else {
+                result.data = await this.dbContext.findAll({
+                    where: whereQuery, order: [[orderBy, orderDir]], limit: pageSize, offset: offset
+                })
+            }
 
         }
         result.count = await this.dbContext.count({ where: whereQuery });

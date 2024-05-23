@@ -29,13 +29,15 @@ const scrapeData = async () => {
                 }
             })
 
-            const img = htmlElement.querySelector('img') ? htmlElement.querySelector('img').src : null;
-            return { ...obj, img };
+            const img = Array.from(htmlElement.querySelectorAll('img'), (e) => {
+                return e.src;
+            })
+            return { ...obj, img: img[1] };
         })
         return rows;
     });
 
-    const cryptoCurrencies = results.filter(cc => cc.img != null).reduce((prev, curr) => {
+    const cryptoCurrencies = results.filter(cc => cc.img != undefined).reduce((prev, curr) => {
         const exists = prev.find((p: any) => p.index == curr.index)
         if (!exists) {
             prev.push(curr)

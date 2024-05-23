@@ -7,7 +7,8 @@ export class CryptoMapper {
                 img: d.img,
                 twentyfourhour: parseFloat(d["24h"]),
                 marketcap: this.convertMarketCap(d.marketcap),
-                price: this.convertPrice(d.price)
+                price: this.convertPrice(d.price),
+                rank: parseInt(d.index)
             }
         })
     }
@@ -16,6 +17,7 @@ export class CryptoMapper {
             return {
                 CryptoId: d.guid,
                 CryptoName: d.name,
+                Rank: d.rank,
                 Code: d.code,
                 Image: d.img,
                 Change_24h: d.twentyfourhour,

@@ -77,7 +77,7 @@ router.get('/watchlist', (req, res) => {
 router.post('/watchlist', (req, res) => {
   new CryptoWatchlistControllers().addWatchList(req, res);
 });
-router.delete('/watchlist', (req, res) => {
+router.delete('/watchlist/:cryptowatchlistid', (req, res) => {
   new CryptoWatchlistControllers().deleteWatchList(req, res);
 });
 app.use('/', router);

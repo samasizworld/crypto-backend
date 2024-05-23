@@ -1,5 +1,4 @@
 import { createDbContext } from "../connection/connection";
-import { Logger } from "../logger/logger";
 import { CryptoMapper } from "../mapper/CryptoMapper";
 import { CryptoService } from "../services/CryptoService";
 
@@ -11,7 +10,7 @@ export class CryptoControllers {
             const pageSize: number = req.query.pageSize ? parseInt(req.query.pageSize) : 20;
             const page: number = req.query.page ? parseInt(req.query.page) : 1;
             const offset: number = pageSize * (page - 1);
-            const orderBy: string = req.query.orderBy ? req.query.orderBy : 'name';
+            const orderBy: string = req.query.orderBy ? req.query.orderBy : 'rank';
             const orderDir: string = req.query.orderDir ? req.query.orderDir : 'asc';
             const search = req.query.search || '';
 
