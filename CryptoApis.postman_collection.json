@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "b66294a1-f905-4cb3-ae9c-0f1290a06c25",
+		"name": "CryptoApis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11075435"
+	},
+	"item": [
+		{
+			"name": "List Cryptos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/crypto?search=&pageSize=20&page=1&orderBy=rank&orderDir=asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"crypto"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": ""
+						},
+						{
+							"key": "pageSize",
+							"value": "20"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "orderBy",
+							"value": "rank"
+						},
+						{
+							"key": "orderDir",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add to WatchList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Code\": \"BCH\",\r\n    \"MinPrice\": 35000,\r\n    \"MaxPrice\": 60000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7000/watchlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"watchlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get WatchList",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Code\": \"BTC\",\r\n    \"MinPrice\": 35000,\r\n    \"MaxPrice\": 60000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7000/watchlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"watchlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get WatchList Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Code\": \"BTC\",\r\n    \"MinPrice\": 35000,\r\n    \"MaxPrice\": 60000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7000/watchlist/05bfb758-86a3-437c-acf3-8dbabf51f822",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"watchlist",
+						"05bfb758-86a3-437c-acf3-8dbabf51f822"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
