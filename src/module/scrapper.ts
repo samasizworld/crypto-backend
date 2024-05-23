@@ -6,9 +6,14 @@ import { CryptoService } from '../services/CryptoService';
 sequelizeConnect();
 const scrapeData = async () => {
     console.log(`Child Process Id ${process.pid}`)
-    const browser = await launch();
+    const browser = await launch({
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox'
+        ], timeout: 60000
+    });
     const page = await browser.newPage();
-    await page.goto('https://coinranking.com/');
+    await page.goto('https://coinranking.com/', { timeout: 60000 });
     const results = await page.evaluate(() => {
         const rows = Array.from(document.querySelectorAll('tr'), (htmlElement) => {
             const columnTexts = htmlElement.innerText.split('\n');
