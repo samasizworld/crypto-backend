@@ -2,15 +2,31 @@ version: '3.8'
 services:
   postgres:
     image: postgres:14-alpine
-    container_name: my-postgres
+    container_name: postgres
     env_file: ./.env
     volumes:
-      - "~/postgresdata:/var/lib/postgresql/data"
+      - ~/postgresdata:/var/lib/postgresql/data
     networks:
       - mynetwork
     ports:
       - "5433:5432"
     restart: unless-stopped
+
+  cryptoapi:
+    build:
+      context: .
+      dockerfile: .Dockerfile
+    image: cryptoimage
+    container_name: cryptoapi
+    ports:
+      - "7000:7000"
+    restart: unless-stopped
+    networks:
+      - mynetwork
+    volumes:
+      - ~/cryptoapilogs:/logger/notificationlogs
+    depends_on:
+      - postgres
 
 networks:
   mynetwork:
