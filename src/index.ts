@@ -62,6 +62,7 @@ app.use(featurePolicy({
 app.use(cors({
   "origin": "*",
   "allowedHeaders": "*",
+  "exposedHeaders":"*",
   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE"
 }));
 
