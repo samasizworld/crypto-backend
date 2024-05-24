@@ -12,12 +12,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:7000/crypto?search=&pageSize=20&page=1&orderBy=rank&orderDir=asc",
+					"raw": "http://localhost:7001/crypto?search=&pageSize=20&page=1&orderBy=twentyfourhour&orderDir=asc",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7000",
+					"port": "7001",
 					"path": [
 						"crypto"
 					],
@@ -36,7 +36,7 @@
 						},
 						{
 							"key": "orderBy",
-							"value": "rank"
+							"value": "twentyfourhour"
 						},
 						{
 							"key": "orderDir",
@@ -107,7 +107,7 @@
 			"response": []
 		},
 		{
-			"name": "Get WatchList Copy",
+			"name": "Delete WatchList",
 			"request": {
 				"method": "DELETE",
 				"header": [],
